@@ -1,0 +1,1295 @@
+
+
+============================================================
+ФАЙЛ: src/styles.css
+============================================================
+
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 1.125rem;
+  --background: oklch(0.982 0.012 75);
+  --foreground: oklch(0.31 0.028 35);
+  --card: oklch(0.995 0.006 85);
+  --card-foreground: oklch(0.31 0.028 35);
+  --popover: oklch(0.995 0.006 85);
+  --popover-foreground: oklch(0.31 0.028 35);
+  --primary: oklch(0.66 0.105 32);
+  --primary-foreground: oklch(0.99 0.005 80);
+  --secondary: oklch(0.945 0.022 45);
+  --secondary-foreground: oklch(0.38 0.035 33);
+  --muted: oklch(0.955 0.014 70);
+  --muted-foreground: oklch(0.57 0.024 45);
+  --accent: oklch(0.925 0.035 20);
+  --accent-foreground: oklch(0.38 0.045 25);
+  --destructive: oklch(0.577 0.185 27.325);
+  --destructive-foreground: oklch(0.99 0.005 80);
+  --border: oklch(0.905 0.018 55);
+  --input: oklch(0.905 0.018 55);
+  --ring: oklch(0.66 0.105 32);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.984 0.003 247.858);
+  --sidebar-foreground: oklch(0.129 0.042 264.695);
+  --sidebar-primary: oklch(0.208 0.042 265.755);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.968 0.007 247.896);
+  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
+  --sidebar-border: oklch(0.929 0.013 255.508);
+  --sidebar-ring: oklch(0.704 0.04 256.788);
+}
+
+.dark {
+  --background: oklch(0.129 0.042 264.695);
+  --foreground: oklch(0.984 0.003 247.858);
+  --card: oklch(0.208 0.042 265.755);
+  --card-foreground: oklch(0.984 0.003 247.858);
+  --popover: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.984 0.003 247.858);
+  --primary: oklch(0.929 0.013 255.508);
+  --primary-foreground: oklch(0.208 0.042 265.755);
+  --secondary: oklch(0.279 0.041 260.031);
+  --secondary-foreground: oklch(0.984 0.003 247.858);
+  --muted: oklch(0.279 0.041 260.031);
+  --muted-foreground: oklch(0.704 0.04 256.788);
+  --accent: oklch(0.279 0.041 260.031);
+  --accent-foreground: oklch(0.984 0.003 247.858);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.551 0.027 264.364);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.208 0.042 265.755);
+  --sidebar-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.279 0.041 260.031);
+  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.551 0.027 264.364);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+}
+
+
+============================================================
+ФАЙЛ: src/router.tsx
+============================================================
+
+import { QueryClient } from "@tanstack/react-query";
+import { createRouter } from "@tanstack/react-router";
+import { routeTree } from "./routeTree.gen";
+
+export const getRouter = () => {
+  const queryClient = new QueryClient();
+
+  const router = createRouter({
+    routeTree,
+    context: { queryClient },
+    scrollRestoration: true,
+    defaultPreloadStaleTime: 0,
+  });
+
+  return router;
+};
+
+
+============================================================
+ФАЙЛ: src/start.ts
+============================================================
+
+import { createStart, createCsrfMiddleware, createMiddleware } from "@tanstack/react-start";
+
+import { renderErrorPage } from "./lib/error-page";
+import { attachSupabaseAuth } from "./lib/supabase-auth-attacher";
+
+const errorMiddleware = createMiddleware().server(async ({ next }) => {
+  try {
+    return await next();
+  } catch (error) {
+    if (error != null && typeof error === "object" && "statusCode" in error) {
+      throw error;
+    }
+    console.error(error);
+    return new Response(renderErrorPage(), {
+      status: 500,
+      headers: { "content-type": "text/html; charset=utf-8" },
+    });
+  }
+});
+
+// Start installs this automatically when src/start.ts is absent; defining the
+// file opts out, so re-add it explicitly to keep server functions protected
+// from cross-site requests.
+const csrfMiddleware = createCsrfMiddleware({
+  filter: (ctx) => ctx.handlerType === "serverFn",
+});
+
+export const startInstance = createStart(() => ({
+  requestMiddleware: [errorMiddleware, csrfMiddleware],
+  functionMiddleware: [attachSupabaseAuth],
+}));
+
+
+============================================================
+ФАЙЛ: src/server.ts
+============================================================
+
+import "./lib/error-capture";
+
+import { consumeLastCapturedError } from "./lib/error-capture";
+import { renderErrorPage } from "./lib/error-page";
+
+type ServerEntry = {
+  fetch: (request: Request, env: unknown, ctx: unknown) => Promise<Response> | Response;
+};
+
+let serverEntryPromise: Promise<ServerEntry> | undefined;
+
+async function getServerEntry(): Promise<ServerEntry> {
+  if (!serverEntryPromise) {
+    serverEntryPromise = import("@tanstack/react-start/server-entry").then(
+      (m) => (m.default ?? m) as ServerEntry,
+    );
+  }
+  return serverEntryPromise;
+}
+
+// h3 swallows in-handler throws into a normal 500 Response with body
+// {"unhandled":true,"message":"HTTPError"} — try/catch alone never fires for those.
+async function normalizeCatastrophicSsrResponse(response: Response): Promise<Response> {
+  if (response.status < 500) return response;
+  const contentType = response.headers.get("content-type") ?? "";
+  if (!contentType.includes("application/json")) return response;
+
+  const body = await response.clone().text();
+  if (!isH3SwallowedErrorBody(body)) return response;
+
+  console.error(consumeLastCapturedError() ?? new Error(`h3 swallowed SSR error: ${body}`));
+  return new Response(renderErrorPage(), {
+    status: 500,
+    headers: { "content-type": "text/html; charset=utf-8" },
+  });
+}
+
+function isH3SwallowedErrorBody(body: string): boolean {
+  try {
+    const payload = JSON.parse(body) as { unhandled?: unknown; message?: unknown };
+    return payload.unhandled === true && payload.message === "HTTPError";
+  } catch {
+    return false;
+  }
+}
+
+export default {
+  async fetch(request: Request, env: unknown, ctx: unknown) {
+    try {
+      const handler = await getServerEntry();
+      const response = await handler.fetch(request, env, ctx);
+      return await normalizeCatastrophicSsrResponse(response);
+    } catch (error) {
+      console.error(error);
+      return new Response(renderErrorPage(), {
+        status: 500,
+        headers: { "content-type": "text/html; charset=utf-8" },
+      });
+    }
+  },
+};
+
+
+============================================================
+ФАЙЛ: src/lib/phone.ts
+============================================================
+
+/** Utilities for Russian phone numbers, safe for both client and server. */
+
+/** Keeps only digits and normalises to the 11-digit 7XXXXXXXXXX form. */
+export function normalizePhone(input: string): string | null {
+  let digits = input.replace(/\D/g, "");
+  if (digits.length === 11 && digits.startsWith("8")) digits = "7" + digits.slice(1);
+  if (digits.length === 10) digits = "7" + digits;
+  if (digits.length !== 11 || !digits.startsWith("7")) return null;
+  return digits;
+}
+
+/** Formats digits (without the leading 7) as +7 (999) 123-45-67 */
+export function formatPhoneInput(digits: string): string {
+  const d = digits.replace(/\D/g, "").slice(0, 10);
+  let out = "+7";
+  if (d.length > 0) out += ` (${d.slice(0, 3)}`;
+  if (d.length >= 3) out += ")";
+  if (d.length > 3) out += ` ${d.slice(3, 6)}`;
+  if (d.length > 6) out += `-${d.slice(6, 8)}`;
+  if (d.length > 8) out += `-${d.slice(8, 10)}`;
+  return out;
+}
+
+export function prettyPhone(phone: string): string {
+  return formatPhoneInput(phone.slice(1));
+}
+
+
+============================================================
+ФАЙЛ: src/lib/auth.functions.ts
+============================================================
+
+import { createServerFn } from "@tanstack/react-start";
+
+import { normalizePhone } from "./phone";
+
+/**
+ * Test mode: the SMS code is returned to the browser and shown on screen.
+ * Swap this for a real SMS provider (SMS.ru etc.) when credentials exist.
+ */
+const TEST_MODE = true;
+const CODE_TTL_MS = 5 * 60 * 1000;
+const RESEND_COOLDOWN_MS = 60 * 1000;
+const MAX_ATTEMPTS = 5;
+
+async function sha256Hex(value: string): Promise<string> {
+  const bytes = new TextEncoder().encode(value);
+  const digest = await crypto.subtle.digest("SHA-256", bytes);
+  return Array.from(new Uint8Array(digest))
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
+}
+
+function serverSecret(): string {
+  return process.env["SUPABASE_SERVICE_ROLE_KEY"] ?? "fallback-dev-secret";
+}
+
+function hashCode(phone: string, code: string) {
+  return sha256Hex(`${phone}:${code}:${serverSecret()}`);
+}
+
+/** Deterministic per-phone password; never leaves the server. */
+async function phonePassword(phone: string) {
+  const hex = await sha256Hex(`pwd:${phone}:${serverSecret()}`);
+  return `Ph!${hex.slice(0, 40)}`;
+}
+
+function syntheticEmail(phone: string) {
+  return `${phone}@phone.local`;
+}
+
+export const requestOtp = createServerFn({ method: "POST" })
+  .inputValidator((data: { phone: string }) => data)
+  .handler(async ({ data }) => {
+    const phone = normalizePhone(data.phone);
+    if (!phone) throw new Error("Некорректный номер телефона");
+
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+
+    const { data: recent } = await supabaseAdmin
+      .from("phone_otp")
+      .select("created_at")
+      .eq("phone", phone)
+      .order("created_at", { ascending: false })
+      .limit(1)
+      .maybeSingle();
+
+    if (recent) {
+      const elapsed = Date.now() - new Date(recent.created_at).getTime();
+      if (elapsed < RESEND_COOLDOWN_MS) {
+        throw new Error(
+          `Код уже отправлен. Повторите через ${Math.ceil((RESEND_COOLDOWN_MS - elapsed) / 1000)} сек.`,
+        );
+      }
+    }
+
+    const code = String(Math.floor(100000 + Math.random() * 900000));
+    const { error } = await supabaseAdmin.from("phone_otp").insert({
+      phone,
+      code_hash: await hashCode(phone, code),
+      expires_at: new Date(Date.now() + CODE_TTL_MS).toISOString(),
+    });
+    if (error) throw new Error("Не удалось отправить код, попробуйте ещё раз");
+
+    return { phone, testCode: TEST_MODE ? code : null };
+  });
+
+export const verifyOtp = createServerFn({ method: "POST" })
+  .inputValidator((data: { phone: string; code: string }) => data)
+  .handler(async ({ data }) => {
+    const phone = normalizePhone(data.phone);
+    const code = data.code.replace(/\D/g, "");
+    if (!phone) throw new Error("Некорректный номер телефона");
+    if (code.length !== 6) throw new Error("Введите 6 цифр из SMS");
+
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+
+    const { data: otp } = await supabaseAdmin
+      .from("phone_otp")
+      .select("id, code_hash, expires_at, attempts, consumed_at")
+      .eq("phone", phone)
+      .order("created_at", { ascending: false })
+      .limit(1)
+      .maybeSingle();
+
+    if (!otp || otp.consumed_at) throw new Error("Запросите код заново");
+    if (new Date(otp.expires_at).getTime() < Date.now()) throw new Error("Код истёк, запросите новый");
+    if (otp.attempts >= MAX_ATTEMPTS) throw new Error("Слишком много попыток, запросите новый код");
+
+    if ((await hashCode(phone, code)) !== otp.code_hash) {
+      await supabaseAdmin
+        .from("phone_otp")
+        .update({ attempts: otp.attempts + 1 })
+        .eq("id", otp.id);
+      throw new Error("Неверный код");
+    }
+
+    await supabaseAdmin
+      .from("phone_otp")
+      .update({ consumed_at: new Date().toISOString() })
+      .eq("id", otp.id);
+
+    const email = syntheticEmail(phone);
+    const password = await phonePassword(phone);
+
+    const { createClient } = await import("@supabase/supabase-js");
+    const url = process.env["SUPABASE_URL"]!;
+    const publishable = process.env["SUPABASE_PUBLISHABLE_KEY"]!;
+    const anonClient = createClient(url, publishable, {
+      auth: { persistSession: false, autoRefreshToken: false },
+      global: {
+        fetch: (input: RequestInfo | URL, init?: RequestInit) => {
+          const headers = new Headers(init?.headers);
+          if (publishable.startsWith("sb_") && headers.get("Authorization") === `Bearer ${publishable}`) {
+            headers.delete("Authorization");
+          }
+          headers.set("apikey", publishable);
+          return fetch(input, { ...init, headers });
+        },
+      },
+    });
+
+    let signIn = await anonClient.auth.signInWithPassword({ email, password });
+
+    if (signIn.error) {
+      const created = await supabaseAdmin.auth.admin.createUser({
+        email,
+        password,
+        email_confirm: true,
+        user_metadata: { phone },
+      });
+      if (created.error && !created.error.message.toLowerCase().includes("already")) {
+        throw new Error("Не удалось создать аккаунт");
+      }
+      signIn = await anonClient.auth.signInWithPassword({ email, password });
+      if (signIn.error || !signIn.data.session) throw new Error("Не удалось войти, попробуйте ещё раз");
+    }
+
+    const session = signIn.data.session!;
+    const userId = session.user.id;
+
+    await supabaseAdmin
+      .from("profiles")
+      .upsert({ id: userId, phone }, { onConflict: "id" });
+
+    const { data: profile } = await supabaseAdmin
+      .from("profiles")
+      .select("full_name, active_mode")
+      .eq("id", userId)
+      .maybeSingle();
+
+    const { data: roles } = await supabaseAdmin
+      .from("user_roles")
+      .select("role")
+      .eq("user_id", userId);
+
+    return {
+      access_token: session.access_token,
+      refresh_token: session.refresh_token,
+      hasName: Boolean(profile?.full_name),
+      roles: (roles ?? []).map((r) => r.role as "client" | "master"),
+      activeMode: (profile?.active_mode ?? "client") as "client" | "master",
+    };
+  });
+
+
+============================================================
+ФАЙЛ: src/lib/profile.functions.ts
+============================================================
+
+import { createServerFn } from "@tanstack/react-start";
+
+import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
+
+export type AccountMode = "client" | "master";
+
+export const getMe = createServerFn({ method: "GET" })
+  .middleware([requireSupabaseAuth])
+  .handler(async ({ context }) => {
+    const { supabase, userId } = context;
+
+    const { data: profile } = await supabase
+      .from("profiles")
+      .select("id, full_name, phone, avatar_url, city, active_mode")
+      .eq("id", userId)
+      .maybeSingle();
+
+    const { data: roles } = await supabase.from("user_roles").select("role").eq("user_id", userId);
+
+    return {
+      profile,
+      roles: (roles ?? []).map((r) => r.role as AccountMode),
+      activeMode: (profile?.active_mode ?? "client") as AccountMode,
+    };
+  });
+
+/** Adds a role to the account (idempotent) and makes it the active mode. */
+export const switchMode = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((data: { mode: AccountMode }) => data)
+  .handler(async ({ data, context }) => {
+    const { supabase, userId } = context;
+    if (data.mode !== "client" && data.mode !== "master") throw new Error("Неизвестный режим");
+
+    const { data: existing } = await supabase
+      .from("user_roles")
+      .select("id")
+      .eq("user_id", userId)
+      .eq("role", data.mode)
+      .maybeSingle();
+
+    if (!existing) {
+      const { error } = await supabase.from("user_roles").insert({ user_id: userId, role: data.mode });
+      if (error) throw new Error("Не удалось сохранить роль");
+    }
+
+    const { error: modeError } = await supabase
+      .from("profiles")
+      .update({ active_mode: data.mode })
+      .eq("id", userId);
+    if (modeError) throw new Error("Не удалось переключить режим");
+
+    return { mode: data.mode };
+  });
+
+export const saveName = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((data: { name: string }) => data)
+  .handler(async ({ data, context }) => {
+    const name = data.name.trim().slice(0, 60);
+    if (name.length < 2) throw new Error("Введите имя");
+
+    const { error } = await context.supabase
+      .from("profiles")
+      .update({ full_name: name })
+      .eq("id", context.userId);
+    if (error) throw new Error("Не удалось сохранить имя");
+
+    return { name };
+  });
+
+
+============================================================
+ФАЙЛ: src/lib/supabase-auth-attacher.ts
+============================================================
+
+import { createMiddleware } from "@tanstack/react-start";
+
+import { supabase } from "@/integrations/supabase/client";
+
+/** Attaches the signed-in user's bearer token to every server function call. */
+export const attachSupabaseAuth = createMiddleware({ type: "function" }).client(async ({ next }) => {
+  const { data } = await supabase.auth.getSession();
+  const token = data.session?.access_token;
+  return next(token ? { headers: { Authorization: `Bearer ${token}` } } : {});
+});
+
+
+============================================================
+ФАЙЛ: src/lib/utils.ts
+============================================================
+
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+
+
+============================================================
+ФАЙЛ: src/components/ModeSwitcher.tsx
+============================================================
+
+import { useNavigate } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
+import { useState } from "react";
+
+import { supabase } from "@/integrations/supabase/client";
+import { switchMode, type AccountMode } from "@/lib/profile.functions";
+
+export function ModeSwitcher({ current }: { current: AccountMode }) {
+  const navigate = useNavigate();
+  const setMode = useServerFn(switchMode);
+  const [loading, setLoading] = useState(false);
+  const target: AccountMode = current === "client" ? "master" : "client";
+
+  async function toggle() {
+    setLoading(true);
+    try {
+      await setMode({ data: { mode: target } });
+      navigate({ to: target === "master" ? "/master" : "/client" });
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  async function signOut() {
+    await supabase.auth.signOut();
+    navigate({ to: "/", replace: true });
+  }
+
+  return (
+    <div className="mt-8 space-y-3">
+      <button
+        onClick={toggle}
+        disabled={loading}
+        className="w-full rounded-2xl border border-border bg-card px-6 py-4 text-base font-medium text-foreground transition disabled:opacity-50"
+      >
+        {target === "master" ? "Переключиться в режим мастера" : "Переключиться в режим клиента"}
+      </button>
+      <button onClick={signOut} className="w-full py-2 text-sm text-muted-foreground">
+        Выйти
+      </button>
+    </div>
+  );
+}
+
+
+============================================================
+ФАЙЛ: src/routes/__root.tsx
+============================================================
+
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import {
+  Outlet,
+  Link,
+  createRootRouteWithContext,
+  useRouter,
+  HeadContent,
+  Scripts,
+} from "@tanstack/react-router";
+import { useEffect, type ReactNode } from "react";
+
+import appCss from "../styles.css?url";
+import { reportLovableError } from "../lib/lovable-error-reporting";
+
+function NotFoundComponent() {
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+      <div className="max-w-md text-center">
+        <h1 className="text-7xl font-bold text-foreground">404</h1>
+        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
+        <p className="mt-2 text-sm text-muted-foreground">
+          The page you're looking for doesn't exist or has been moved.
+        </p>
+        <div className="mt-6">
+          <Link
+            to="/"
+            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+          >
+            Go home
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+  console.error(error);
+  const router = useRouter();
+  useEffect(() => {
+    reportLovableError(error, { boundary: "tanstack_root_error_component" });
+  }, [error]);
+
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+      <div className="max-w-md text-center">
+        <h1 className="text-xl font-semibold tracking-tight text-foreground">
+          This page didn't load
+        </h1>
+        <p className="mt-2 text-sm text-muted-foreground">
+          Something went wrong on our end. You can try refreshing or head back home.
+        </p>
+        <div className="mt-6 flex flex-wrap justify-center gap-2">
+          <button
+            onClick={() => {
+              router.invalidate();
+              reset();
+            }}
+            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+          >
+            Try again
+          </button>
+          <a
+            href="/"
+            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+          >
+            Go home
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+  head: () => ({
+    meta: [
+      { charSet: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { title: "Lovable App" },
+      { name: "description", content: "Lovable Generated Project" },
+      { name: "author", content: "Lovable" },
+      { property: "og:title", content: "Lovable App" },
+      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:site", content: "@Lovable" },
+    ],
+    links: [
+      {
+        rel: "stylesheet",
+        href: appCss,
+      },
+      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+    ],
+  }),
+  shellComponent: RootShell,
+  component: RootComponent,
+  notFoundComponent: NotFoundComponent,
+  errorComponent: ErrorComponent,
+});
+
+function RootShell({ children }: { children: ReactNode }) {
+  return (
+    <html lang="en">
+      <head>
+        <HeadContent />
+      </head>
+      <body>
+        {children}
+        <Scripts />
+      </body>
+    </html>
+  );
+}
+
+function RootComponent() {
+  const { queryClient } = Route.useRouteContext();
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+      <Outlet />
+    </QueryClientProvider>
+  );
+}
+
+
+============================================================
+ФАЙЛ: src/routes/index.tsx
+============================================================
+
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
+import { useState } from "react";
+
+import { requestOtp } from "@/lib/auth.functions";
+import { formatPhoneInput, normalizePhone } from "@/lib/phone";
+
+export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Бьюти-мастера Красноярска — запись онлайн" },
+      {
+        name: "description",
+        content:
+          "Запись к мастерам маникюра, ресниц, бровей и волос в Красноярске. Вход по номеру телефона за 10 секунд.",
+      },
+      { property: "og:title", content: "Бьюти-мастера Красноярска — запись онлайн" },
+      {
+        property: "og:description",
+        content: "Найдите мастера рядом и запишитесь онлайн. Цены в рублях, мастера Красноярска.",
+      },
+    ],
+  }),
+  component: PhoneScreen,
+});
+
+function PhoneScreen() {
+  const navigate = useNavigate();
+  const send = useServerFn(requestOtp);
+  const [digits, setDigits] = useState("");
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+
+  const phone = normalizePhone(digits);
+  const canSubmit = Boolean(phone) && !loading;
+
+  async function onSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!phone) return;
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await send({ data: { phone } });
+      navigate({
+        to: "/auth/code",
+        search: { phone: res.phone, test: res.testCode ?? "" },
+      });
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Что-то пошло не так");
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  return (
+    <main className="flex min-h-screen flex-col justify-between bg-background px-6 pb-10 pt-16">
+      <div>
+        <div className="mb-10">
+          <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-accent text-2xl">
+            ✨
+          </div>
+          <h1 className="text-3xl font-semibold leading-tight text-foreground">
+            Красота рядом,
+            <br />в Красноярске
+          </h1>
+          <p className="mt-3 text-base text-muted-foreground">
+            Войдите по номеру телефона — пароли не нужны.
+          </p>
+        </div>
+
+        <form onSubmit={onSubmit} className="space-y-4">
+          <label className="block text-sm font-medium text-muted-foreground" htmlFor="phone">
+            Ваш номер
+          </label>
+          <input
+            id="phone"
+            type="tel"
+            inputMode="numeric"
+            autoComplete="tel"
+            value={formatPhoneInput(digits)}
+            onChange={(e) => setDigits(e.target.value.replace(/\D/g, "").replace(/^[78]/, ""))}
+            placeholder="+7 (___) ___-__-__"
+            className="w-full rounded-2xl border border-input bg-card px-5 py-5 text-2xl tracking-wide text-foreground outline-none transition focus:border-primary focus:ring-2 focus:ring-ring/30"
+          />
+          {error ? <p className="text-sm text-destructive">{error}</p> : null}
+          <button
+            type="submit"
+            disabled={!canSubmit}
+            className="w-full rounded-2xl bg-primary px-6 py-5 text-lg font-medium text-primary-foreground transition disabled:opacity-40"
+          >
+            {loading ? "Отправляем…" : "Получить код"}
+          </button>
+        </form>
+      </div>
+
+      <p className="mt-10 text-center text-xs text-muted-foreground">
+        Нажимая «Получить код», вы соглашаетесь с правилами сервиса.
+      </p>
+    </main>
+  );
+}
+
+
+============================================================
+ФАЙЛ: src/routes/auth.code.tsx
+============================================================
+
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
+import { useEffect, useRef, useState } from "react";
+
+import { supabase } from "@/integrations/supabase/client";
+import { requestOtp, verifyOtp } from "@/lib/auth.functions";
+import { prettyPhone } from "@/lib/phone";
+
+export const Route = createFileRoute("/auth/code")({
+  validateSearch: (search: Record<string, unknown>) => ({
+    phone: String(search["phone"] ?? ""),
+    test: String(search["test"] ?? ""),
+  }),
+  head: () => ({
+    meta: [
+      { title: "Код из SMS — вход" },
+      { name: "description", content: "Введите код подтверждения для входа в приложение записи к мастерам." },
+      { property: "og:title", content: "Код из SMS — вход" },
+      { property: "og:description", content: "Подтверждение номера телефона." },
+    ],
+  }),
+  component: CodeScreen,
+});
+
+function CodeScreen() {
+  const { phone, test } = Route.useSearch();
+  const navigate = useNavigate();
+  const verify = useServerFn(verifyOtp);
+  const resend = useServerFn(requestOtp);
+
+  const [digits, setDigits] = useState<string[]>(Array(6).fill(""));
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [seconds, setSeconds] = useState(60);
+  const [testCode, setTestCode] = useState(test);
+  const inputs = useRef<(HTMLInputElement | null)[]>([]);
+
+  useEffect(() => {
+    if (seconds <= 0) return;
+    const t = setTimeout(() => setSeconds((s) => s - 1), 1000);
+    return () => clearTimeout(t);
+  }, [seconds]);
+
+  useEffect(() => {
+    if (!phone) navigate({ to: "/" });
+  }, [phone, navigate]);
+
+  async function submit(code: string) {
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await verify({ data: { phone, code } });
+      const { error: sessionError } = await supabase.auth.setSession({
+        access_token: res.access_token,
+        refresh_token: res.refresh_token,
+      });
+      if (sessionError) throw new Error("Не удалось войти, попробуйте ещё раз");
+
+      if (res.roles.length === 0) {
+        navigate({ to: "/auth/role" });
+      } else if (!res.hasName) {
+        navigate({ to: "/auth/name" });
+      } else {
+        navigate({ to: res.activeMode === "master" ? "/master" : "/client" });
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Что-то пошло не так");
+      setDigits(Array(6).fill(""));
+      inputs.current[0]?.focus();
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  function onChange(index: number, value: string) {
+    const chars = value.replace(/\D/g, "");
+    if (!chars) {
+      const next = [...digits];
+      next[index] = "";
+      setDigits(next);
+      return;
+    }
+    const next = [...digits];
+    for (let i = 0; i < chars.length && index + i < 6; i++) next[index + i] = chars[i]!;
+    setDigits(next);
+    const filled = Math.min(index + chars.length, 5);
+    inputs.current[filled]?.focus();
+    const code = next.join("");
+    if (code.length === 6 && !next.includes("")) void submit(code);
+  }
+
+  async function onResend() {
+    setError(null);
+    try {
+      const res = await resend({ data: { phone } });
+      setTestCode(res.testCode ?? "");
+      setSeconds(60);
+      setDigits(Array(6).fill(""));
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Не удалось отправить код");
+    }
+  }
+
+  return (
+    <main className="flex min-h-screen flex-col bg-background px-6 pb-10 pt-16">
+      <h1 className="text-3xl font-semibold text-foreground">Код из SMS</h1>
+      <p className="mt-3 text-base text-muted-foreground">
+        Отправили на номер {phone ? prettyPhone(phone) : ""}
+      </p>
+
+      {testCode ? (
+        <div className="mt-6 rounded-2xl border border-dashed border-primary/50 bg-accent/50 p-4 text-center">
+          <p className="text-xs uppercase tracking-wide text-muted-foreground">Тестовый режим</p>
+          <p className="mt-1 text-3xl font-semibold tracking-[0.3em] text-foreground">{testCode}</p>
+        </div>
+      ) : null}
+
+      <div className="mt-8 flex justify-between gap-2">
+        {digits.map((d, i) => (
+          <input
+            key={i}
+            ref={(el) => {
+              inputs.current[i] = el;
+            }}
+            value={d}
+            inputMode="numeric"
+            maxLength={6}
+            onChange={(e) => onChange(i, e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Backspace" && !digits[i] && i > 0) inputs.current[i - 1]?.focus();
+            }}
+            className="h-16 w-full rounded-2xl border border-input bg-card text-center text-2xl font-semibold text-foreground outline-none transition focus:border-primary focus:ring-2 focus:ring-ring/30"
+          />
+        ))}
+      </div>
+
+      {error ? <p className="mt-4 text-sm text-destructive">{error}</p> : null}
+      {loading ? <p className="mt-4 text-sm text-muted-foreground">Проверяем код…</p> : null}
+
+      <button
+        onClick={onResend}
+        disabled={seconds > 0}
+        className="mt-8 text-sm text-primary disabled:text-muted-foreground"
+      >
+        {seconds > 0 ? `Отправить снова через ${seconds} сек` : "Отправить код ещё раз"}
+      </button>
+
+      <button onClick={() => navigate({ to: "/" })} className="mt-4 text-sm text-muted-foreground">
+        Изменить номер
+      </button>
+    </main>
+  );
+}
+
+
+============================================================
+ФАЙЛ: src/routes/auth.role.tsx
+============================================================
+
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
+import { useState } from "react";
+
+import { switchMode } from "@/lib/profile.functions";
+
+export const Route = createFileRoute("/auth/role")({
+  head: () => ({
+    meta: [
+      { title: "С чего начнём — клиент или мастер" },
+      { name: "description", content: "Выберите, с какого режима начать: поиск мастеров или работа мастером." },
+      { property: "og:title", content: "С чего начнём — клиент или мастер" },
+      { property: "og:description", content: "Один аккаунт, два режима: клиент и мастер." },
+    ],
+  }),
+  component: RoleScreen,
+});
+
+function RoleScreen() {
+  const navigate = useNavigate();
+  const setMode = useServerFn(switchMode);
+  const [loading, setLoading] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  async function choose(mode: "client" | "master") {
+    setLoading(mode);
+    setError(null);
+    try {
+      await setMode({ data: { mode } });
+      navigate({ to: "/auth/name" });
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Не удалось сохранить выбор");
+      setLoading(null);
+    }
+  }
+
+  return (
+    <main className="flex min-h-screen flex-col bg-background px-6 pb-10 pt-16">
+      <h1 className="text-3xl font-semibold text-foreground">С чего начнём?</h1>
+      <p className="mt-3 text-base text-muted-foreground">
+        Это только стартовый экран — режим можно будет переключить в профиле.
+      </p>
+
+      <div className="mt-10 space-y-4">
+        <button
+          onClick={() => choose("client")}
+          disabled={loading !== null}
+          className="w-full rounded-3xl border border-border bg-card p-6 text-left transition disabled:opacity-50"
+        >
+          <span className="text-3xl">💅</span>
+          <p className="mt-3 text-xl font-semibold text-foreground">Я клиент</p>
+          <p className="mt-1 text-sm text-muted-foreground">Искать мастеров и записываться</p>
+        </button>
+
+        <button
+          onClick={() => choose("master")}
+          disabled={loading !== null}
+          className="w-full rounded-3xl bg-primary p-6 text-left text-primary-foreground transition disabled:opacity-50"
+        >
+          <span className="text-3xl">✂️</span>
+          <p className="mt-3 text-xl font-semibold">Я мастер</p>
+          <p className="mt-1 text-sm opacity-80">Принимать записи и вести расписание</p>
+        </button>
+      </div>
+
+      {error ? <p className="mt-6 text-sm text-destructive">{error}</p> : null}
+
+      <p className="mt-8 text-center text-xs text-muted-foreground">
+        Один номер — один аккаунт. Позже можно быть и клиентом, и мастером.
+      </p>
+    </main>
+  );
+}
+
+
+============================================================
+ФАЙЛ: src/routes/auth.name.tsx
+============================================================
+
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
+import { useState } from "react";
+
+import { getMe, saveName } from "@/lib/profile.functions";
+
+export const Route = createFileRoute("/auth/name")({
+  head: () => ({
+    meta: [
+      { title: "Как вас зовут — профиль" },
+      { name: "description", content: "Укажите имя, чтобы мастера и клиенты вас узнавали." },
+      { property: "og:title", content: "Как вас зовут — профиль" },
+      { property: "og:description", content: "Последний шаг регистрации." },
+    ],
+  }),
+  component: NameScreen,
+});
+
+function NameScreen() {
+  const navigate = useNavigate();
+  const save = useServerFn(saveName);
+  const me = useServerFn(getMe);
+  const [name, setName] = useState("");
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+
+  async function onSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+    try {
+      await save({ data: { name } });
+      const info = await me({});
+      navigate({ to: info.activeMode === "master" ? "/master" : "/client" });
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Не удалось сохранить имя");
+      setLoading(false);
+    }
+  }
+
+  return (
+    <main className="flex min-h-screen flex-col bg-background px-6 pb-10 pt-16">
+      <h1 className="text-3xl font-semibold text-foreground">Как вас зовут?</h1>
+      <p className="mt-3 text-base text-muted-foreground">Имя будет видно при записи.</p>
+
+      <form onSubmit={onSubmit} className="mt-10 space-y-4">
+        <input
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Например, Анна"
+          className="w-full rounded-2xl border border-input bg-card px-5 py-5 text-xl text-foreground outline-none transition focus:border-primary focus:ring-2 focus:ring-ring/30"
+        />
+        {error ? <p className="text-sm text-destructive">{error}</p> : null}
+        <button
+          type="submit"
+          disabled={loading || name.trim().length < 2}
+          className="w-full rounded-2xl bg-primary px-6 py-5 text-lg font-medium text-primary-foreground transition disabled:opacity-40"
+        >
+          {loading ? "Сохраняем…" : "Готово"}
+        </button>
+      </form>
+    </main>
+  );
+}
+
+
+============================================================
+ФАЙЛ: src/routes/_authenticated/route.tsx
+============================================================
+
+import { createFileRoute, Outlet, redirect } from "@tanstack/react-router";
+
+import { supabase } from "@/integrations/supabase/client";
+
+export const Route = createFileRoute("/_authenticated")({
+  ssr: false,
+  beforeLoad: async () => {
+    const { data, error } = await supabase.auth.getUser();
+    if (error || !data.user) throw redirect({ to: "/" });
+    return { user: data.user };
+  },
+  component: () => <Outlet />,
+});
+
+
+============================================================
+ФАЙЛ: src/routes/_authenticated/client.tsx
+============================================================
+
+import { createFileRoute } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
+import { useQuery } from "@tanstack/react-query";
+
+import { ModeSwitcher } from "@/components/ModeSwitcher";
+import { getMe } from "@/lib/profile.functions";
+
+export const Route = createFileRoute("/_authenticated/client")({
+  head: () => ({
+    meta: [
+      { title: "Поиск мастеров — Красноярск" },
+      { name: "description", content: "Скоро здесь появится поиск бьюти-мастеров Красноярска." },
+      { property: "og:title", content: "Поиск мастеров — Красноярск" },
+      { property: "og:description", content: "Режим клиента." },
+    ],
+  }),
+  component: ClientHome,
+});
+
+function ClientHome() {
+  const me = useServerFn(getMe);
+  const { data } = useQuery({ queryKey: ["me"], queryFn: () => me({}) });
+
+  return (
+    <main className="min-h-screen bg-background px-6 pb-10 pt-16">
+      <p className="text-sm text-muted-foreground">Режим клиента</p>
+      <h1 className="mt-2 text-3xl font-semibold text-foreground">
+        Привет, {data?.profile?.full_name || "…"}!
+      </h1>
+      <div className="mt-8 rounded-3xl border border-dashed border-border bg-card p-6">
+        <p className="text-base text-foreground">Поиск мастеров — этап 4</p>
+        <p className="mt-2 text-sm text-muted-foreground">
+          Здесь появится каталог мастеров Красноярска с ценами в рублях.
+        </p>
+      </div>
+      <ModeSwitcher current="client" />
+    </main>
+  );
+}
+
+
+============================================================
+ФАЙЛ: src/routes/_authenticated/master.tsx
+============================================================
+
+import { createFileRoute } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
+import { useQuery } from "@tanstack/react-query";
+
+import { ModeSwitcher } from "@/components/ModeSwitcher";
+import { getMe } from "@/lib/profile.functions";
+
+export const Route = createFileRoute("/_authenticated/master")({
+  head: () => ({
+    meta: [
+      { title: "Кабинет мастера — Красноярск" },
+      { name: "description", content: "Скоро здесь появится профиль мастера, услуги и расписание." },
+      { property: "og:title", content: "Кабинет мастера — Красноярск" },
+      { property: "og:description", content: "Режим мастера." },
+    ],
+  }),
+  component: MasterHome,
+});
+
+function MasterHome() {
+  const me = useServerFn(getMe);
+  const { data } = useQuery({ queryKey: ["me"], queryFn: () => me({}) });
+
+  return (
+    <main className="min-h-screen bg-background px-6 pb-10 pt-16">
+      <p className="text-sm text-muted-foreground">Режим мастера</p>
+      <h1 className="mt-2 text-3xl font-semibold text-foreground">
+        Привет, {data?.profile?.full_name || "…"}!
+      </h1>
+      <div className="mt-8 rounded-3xl border border-dashed border-border bg-card p-6">
+        <p className="text-base text-foreground">Профиль мастера — этап 2</p>
+        <p className="mt-2 text-sm text-muted-foreground">
+          Здесь появятся специализация, район, описание, услуги и расписание.
+        </p>
+      </div>
+      <ModeSwitcher current="master" />
+    </main>
+  );
+}
